@@ -1,263 +1,231 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Katalog Kebaya — Nama Brand</title>
-  <meta name="description" content="Katalog online kebaya: koleksi, detail produk, dan pemesanan." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#fff; --card:#ffffff; --muted:#6b7280; --accent:#b91c1c; --accent-2:#f97316; --border:#e5e7eb; --shadow:0 8px 30px rgba(2,6,23,.08);
-    }
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial; margin:0; background:linear-gradient(180deg,#fff, #fcfcfd); color:#0f172a}
-    .container{max-width:1100px; margin:28px auto; padding:20px}
-    header{display:flex; align-items:center; gap:18px}
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{width:56px; height:56px; border-radius:10px; background:linear-gradient(135deg,#f97316,#b91c1c); display:grid; place-items:center; color:white; font-weight:800}
-    h1{font-size:20px; margin:0}
-    p.lead{margin:4px 0 0; color:var(--muted)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENA ID</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & global */
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { scroll-behavior:smooth; }
 
-    /* controls */
-    .controls{display:flex; gap:12px; margin-top:18px; align-items:center; flex-wrap:wrap}
-    .search{flex:1; min-width:200px}
-    input, select{padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:var(--card); width:100%;}
-    .btn{padding:10px 14px; border-radius:10px; border:0; background:var(--accent); color:white; font-weight:700; cursor:pointer}
+        /* Header - Mengapung di atas semua konten */
+        header {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:15px 30px;
+            
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            
+            color:#fff;
+            z-index:1000;
+        }
 
-    /* grid */
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:18px}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
-    .thumb{width:100%; aspect-ratio:4/3; object-fit:cover; display:block}
-    .card-body{padding:12px 14px; display:flex; gap:10px; flex-direction:column; flex:1}
-    .title{font-weight:700; font-size:16px; margin:0}
-    .meta{color:var(--muted); font-size:14px}
-    .price{margin-top:auto; display:flex; justify-content:space-between; align-items:center; gap:8px}
-    .tag{background:#f1f5f9; color:var(--muted); padding:6px 8px; border-radius:999px; font-weight:600; font-size:13px}
-    .actions{display:flex; gap:8px}
-    .outline{background:white; border:1px solid var(--border); padding:9px 12px; border-radius:10px; cursor:pointer}
+        .hamburger { width:30px; cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; height:22px; margin-right:15px; }
+        .hamburger div { width:100%; height:4px; background:#fff; border-radius:2px; }
 
-    /* modal */
-    .modal-backdrop{position:fixed; inset:0; background:rgba(2,6,23,.5); display:none; place-items:center; z-index:40}
-    .modal{width:min(920px,96%); background:white; border-radius:12px; overflow:hidden; display:grid; grid-template-columns:1fr 360px}
-    .modal .gallery{display:grid; grid-template-rows:1fr auto}
-    .modal .gallery img{width:100%; height:100%; object-fit:cover}
-    .modal .thumbs{display:flex; gap:8px; padding:10px; overflow:auto}
-    .modal .details{padding:18px}
-    .close{position:absolute; right:12px; top:12px; background:white; border-radius:999px; border:1px solid var(--border); padding:6px}
+        .logo { display:flex; justify-content:center; align-items:center; width:80px; height:80px; border-radius:50%; background:#FDF5E6; border:2px solid #D4AF37; color:#B8860B; font-weight:600; font-size:16px; font-family:'Playfair Display', Georgia, serif; text-align:center; box-shadow:0 2px 4px rgba(0,0,0,0.1); transition:transform 0.2s, box-shadow 0.2s; }
+        .logo:hover { transform:scale(1.05); box-shadow:0 4px 8px rgba(0,0,0,0.15); cursor:pointer; }
 
-    /* responsive */
-    @media (max-width:880px){
-      .modal{grid-template-columns:1fr}
-      .modal .details{order:2}
-      .modal .gallery{order:1}
-    }
+        nav { flex:1; text-align:center; }
+        nav ul { list-style:none; display:inline-flex; gap:30px; }
+        nav ul li a { text-decoration:none; color:#fff; font-weight:500; text-shadow:1px 1px 4px rgba(0,0,0,0.5); transition:color 0.3s; cursor:pointer; }
+        nav ul li a:hover { color:#FFD700; }
 
-    footer{margin-top:28px; color:var(--muted); font-size:14px; text-align:center}
-  </style>
+        .cart { font-size:20px; color:#fff; cursor:pointer; position:relative; }
+        .cart span { position:absolute; top:-8px; right:-8px; background:#FFD700; color:#fff; font-size:12px; width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+
+        /* Sidebar */
+        .sidebar { position:fixed; top:0; left:-250px; width:250px; height:100%; background:#FDF5E6; border-right:2px solid #D4AF37; box-shadow:2px 0 5px rgba(0,0,0,0.2); padding:20px; transition:left 0.3s ease; z-index:2000; }
+        .sidebar.active { left:0; }
+        .sidebar h3 { margin-bottom:20px; color:#B8860B; font-family:'Playfair Display', serif; }
+        .sidebar ul { list-style:none; }
+        .sidebar ul li { margin-bottom:15px; }
+        .sidebar ul li a { text-decoration:none; color:#333; font-weight:500; transition:color 0.3s; }
+        .sidebar ul li a:hover { color:#D4AF37; }
+        .sidebar-close { background:#B8860B; color:#fff; border:none; padding:8px 12px; border-radius:4px; font-weight:500; cursor:pointer; margin-bottom:20px; transition:background-color 0.3s; }
+        .sidebar-close:hover { background:#D4AF37; }
+
+        /* MAIN content */
+        main {
+            padding-top: 0;
+        }
+
+        /* General Section Styling */
+        section {
+            position:relative;
+            height:100vh;
+            background-image: url('https://cdn.create.vista.com/api/media/small/722442806/stock-vector-native-american-seamless-ethnic-pattern-abstract-navajo-style-background'); 
+            background-repeat: repeat; /* Mengulang gambar agar menjadi pola */
+            background-size: auto; /* Ukuran asli gambar */
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+            border-bottom:1px solid #ddd;
+        }
+        
+        .section-content {
+            text-align:center;
+            color:#fff;
+            backdrop-filter:blur(3px);
+            background-color:rgba(0,0,0,0.2);
+            padding:50px;
+            border-radius:15px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-family: 'Playfair Display', serif;
+            text-shadow:1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Teks tambahan untuk hero-section */
+        .hero-title {
+            font-size:48px;
+            font-family:'Playfair Display', serif;
+            margin-bottom:20px;
+            text-shadow:1px 1px 6px rgba(0,0,0,0.6);
+        }
+        .hero-btn {
+            padding:12px 30px;
+            font-size:16px;
+            font-weight:500;
+            color:#fff;
+            background-color:rgba(255,255,255,0.1);
+            border:2px solid #fff;
+            border-radius:25px;
+            cursor:pointer;
+            transition:all 0.3s;
+        }
+        .hero-btn:hover {
+            background-color:rgba(255,255,255,0.3);
+            transform:scale(1.05);
+        }
+
+        /* Responsive */
+        @media(max-width:768px){
+            header{flex-direction:column;padding:10px 20px; text-align: center; width: 95%;}
+            nav {margin-top: 15px;}
+            nav ul{flex-direction:column;gap:15px; display: none;}
+            .logo, .cart {margin-top: 10px;}
+            .hero-title {font-size: 32px;}
+            .section-title {font-size: 28px;}
+            .sidebar.active ~ main { transform: translateX(250px); }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+
     <header>
-      <div class="brand">
-        <div class="logo">KB</div>
-        <div>
-          <h1>Katalog Kebaya — Kebaya Kita</h1>
-          <p class="lead">Koleksi kebaya tradisional & modern. Pilih ukuran, warna, dan pesan langsung via WhatsApp.</p>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-      </div>
+        <a href="#" class="logo">MENA ID</a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#welcome">Welcome</a></li>
+                <li><a href="#best-seller">Best Seller</a></li>
+                <li><a href="#promotion">Promotion</a></li>
+                <li><a href="#about-us">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span>0</span>
+        </div>
     </header>
 
-    <section class="controls">
-      <div style="flex:1; min-width:220px;">
-        <input id="search" class="search" placeholder="Cari model, warna, atau kode produk...">
-      </div>
-      <div style="width:180px">
-        <select id="category">
-          <option value="all">Semua Kategori</option>
-          <option value="modern">Modern</option>
-          <option value="tradisional">Tradisional</option>
-          <option value="bridal">Bridal</option>
-        </select>
-      </div>
-      <div style="width:140px">
-        <select id="sort">
-          <option value="popular">Paling populer</option>
-          <option value="new">Terbaru</option>
-          <option value="price_asc">Harga: Rendah → Tinggi</option>
-          <option value="price_desc">Harga: Tinggi → Rendah</option>
-        </select>
-      </div>
-      <button class="btn" id="resetBtn">Reset</button>
-    </section>
+    <div class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebar-close">&larr; Back</button>
+        <h3>Kategori Produk</h3>
+        <ul>
+            <li><a href="#">T-Shirt</a></li>
+            <li><a href="#">Hoodie</a></li>
+            <li><a href="#">Jaket</a></li>
+            <li><a href="#">Celana</a></li>
+            <li><a href="#">Aksesoris</a></li>
+        </ul>
+    </div>
 
     <main>
-      <div class="grid" id="productGrid" aria-live="polite"></div>
+        <section id="home">
+            <div class="section-content">
+                <h1 class="hero-title">Motif Budaya Nusantara</h1>
+                <button class="hero-btn">Shop Now</button>
+            </div>
+        </section>
+        <section id="welcome">
+            <div class="section-content">
+                <h2 class="section-title">Welcome to Our Store</h2>
+            </div>
+        </section>
+        <section id="best-seller">
+            <div class="section-content">
+                <h2 class="section-title">Best Seller</h2>
+            </div>
+        </section>
+        <section id="promotion">
+            <div class="section-content">
+                <h2 class="section-title">Special Promotion</h2>
+            </div>
+        </section>
+        <section id="about-us">
+            <div class="section-content">
+                <h2 class="section-title">About Us</h2>
+            </div>
+        </section>
     </main>
 
-    <footer>
-      © <span id="year"></span> Kebaya Kita · Untuk pemesanan hubungi WhatsApp: <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
-    </footer>
-  </div>
+    <script>
+        // Sidebar toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebar-close');
 
-  <!-- Modal detail produk -->
-  <div class="modal-backdrop" id="modal">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="gallery">
-        <img id="modalMain" src="" alt="Foto produk">
-        <div class="thumbs" id="modalThumbs"></div>
-      </div>
-      <div class="details">
-        <button class="close" id="closeBtn">✕</button>
-        <h2 id="modalTitle">Nama Produk</h2>
-        <p id="modalCode" style="color:var(--muted); margin-top:6px">Kode: -</p>
-        <p id="modalDesc" style="margin-top:10px; color:#111827; line-height:1.6">Deskripsi produk singkat. Bahan, ukuran, & keunggulan.</p>
-        <p style="margin-top:12px; font-weight:800; font-size:18px" id="modalPrice">Rp0</p>
-        <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap">
-          <select id="sizeSelect" style="padding:8px 10px; border-radius:8px; border:1px solid var(--border)">
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
-          <input id="qty" type="number" value="1" min="1" style="width:80px; padding:8px 10px; border-radius:8px; border:1px solid var(--border)">
-        </div>
-        <div style="margin-top:16px; display:flex; gap:10px">
-          <a id="orderBtn" class="btn" href="#">Pesan via WhatsApp</a>
-          <button class="outline" id="wishlistBtn">♡ Simpan</button>
-        </div>
-      </div>
-    </div>
-  </div>
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
 
-  <script>
-    // Tahun
-    document.getElementById('year').textContent = new Date().getFullYear();
+        sidebarClose.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
 
-    // Data produk (edit mudah di sini)
-    const products = [
-      {id: 'KB001', name: 'Kebaya Modern Merah', price: 450000, category: 'modern', desc: 'Kebaya modern bahan brokat, finishing bordir tangan.', images:[
-        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=70'
-      ]},
-      {id: 'KB002', name: 'Kebaya Tradisional Hijau', price: 550000, category: 'tradisional', desc: 'Kebaya tradisional khas jawa, kombinasi songket.', images:[
-        'https://images.unsplash.com/photo-1520975916493-2ad7f8c6f6f9?auto=format&fit=crop&w=1200&q=70'
-      ]},
-      {id: 'KB003', name: 'Kebaya Bridal Putih', price: 1750000, category: 'bridal', desc: 'Kebaya pengantin full lace, custom ukuran.', images:[
-        'https://images.unsplash.com/photo-1520975916461-0ae9b1c9a5f8?auto=format&fit=crop&w=1200&q=70'
-      ]},
-      {id: 'KB004', name: 'Kebaya Encim', price: 380000, category: 'tradisional', desc: 'Model Encim dengan aksen modern, nyaman dipakai seharian.', images:[
-        'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=70'
-      ]},
-      {id: 'KB005', name: 'Kebaya Modern Pastel', price: 420000, category: 'modern', desc: 'Warna pastel lembut, cocok untuk acara formal & keluarga.', images:[
-        'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=70'
-      ]}
-    ];
+        // Smooth scroll menu header
+        const menuLinks = document.querySelectorAll('nav ul li a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function(e){
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if(targetSection){
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffsets - headerOffset;
 
-    // Utils
-    const rupiah = (n) => 'Rp' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                    window.scrollTo({ top: offsetPosition, behavior:"smooth" });
 
-    // Render grid
-    const grid = document.getElementById('productGrid');
-    function render(list){
-      grid.innerHTML = '';
-      if(list.length === 0){
-        grid.innerHTML = '<p style="grid-column:1/-1; color:var(--muted)">Produk tidak ditemukan.</p>';
-        return;
-      }
-      for(const p of list){
-        const el = document.createElement('article');
-        el.className = 'card';
-        el.innerHTML = `
-          <img class="thumb" src="${p.images[0]}" alt="${p.name}" loading="lazy">
-          <div class="card-body">
-            <div>
-              <h3 class="title">${p.name}</h3>
-              <div class="meta">Kode: ${p.id} · ${p.category}</div>
-            </div>
-            <div class="price">
-              <div class="tag">${rupiah(p.price)}</div>
-              <div class="actions">
-                <button class="outline" data-id="${p.id}" onclick="openDetail('${p.id}')">Lihat</button>
-                <a class="btn" href="https://wa.me/6281234567890?text=${encodeURIComponent('Hai, saya mau pesan '+p.name+' (kode '+p.id+')') }" target="_blank">Pesan</a>
-              </div>
-            </div>
-          </div>
-        `;
-        grid.appendChild(el);
-      }
-    }
-
-    // Initial render
-    render(products);
-
-    // Search & filters
-    const search = document.getElementById('search');
-    const category = document.getElementById('category');
-    const sort = document.getElementById('sort');
-    const resetBtn = document.getElementById('resetBtn');
-
-    function applyFilters(){
-      let res = products.slice();
-      const q = search.value.trim().toLowerCase();
-      if(q){ res = res.filter(p => (p.name+p.desc+p.id).toLowerCase().includes(q)); }
-      if(category.value !== 'all'){ res = res.filter(p => p.category === category.value); }
-      // sort
-      if(sort.value === 'price_asc') res.sort((a,b)=>a.price-b.price);
-      else if(sort.value === 'price_desc') res.sort((a,b)=>b.price-a.price);
-      else if(sort.value === 'new') res = res.slice().reverse();
-      // popular default - keep order
-      render(res);
-    }
-
-    search.addEventListener('input', applyFilters);
-    category.addEventListener('change', applyFilters);
-    sort.addEventListener('change', applyFilters);
-    resetBtn.addEventListener('click', ()=>{ search.value=''; category.value='all'; sort.value='popular'; applyFilters(); });
-
-    // Modal
-    const modal = document.getElementById('modal');
-    const modalMain = document.getElementById('modalMain');
-    const modalThumbs = document.getElementById('modalThumbs');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalCode = document.getElementById('modalCode');
-    const modalDesc = document.getElementById('modalDesc');
-    const modalPrice = document.getElementById('modalPrice');
-    const orderBtn = document.getElementById('orderBtn');
-    const sizeSelect = document.getElementById('sizeSelect');
-    const qty = document.getElementById('qty');
-
-    function openDetail(id){
-      const p = products.find(x=>x.id===id);
-      if(!p) return;
-      modalMain.src = p.images[0];
-      modalThumbs.innerHTML = '';
-      for(const img of p.images){
-        const i = document.createElement('img');
-        i.src = img; i.alt = p.name; i.style.width='80px'; i.style.height='60px'; i.style.objectFit='cover'; i.style.borderRadius='8px'; i.style.cursor='pointer';
-        i.onclick = ()=> modalMain.src = img;
-        modalThumbs.appendChild(i);
-      }
-      modalTitle.textContent = p.name;
-      modalCode.textContent = 'Kode: '+p.id;
-      modalDesc.textContent = p.desc;
-      modalPrice.textContent = rupiah(p.price);
-      // order link with prefilled message (size & qty will be appended when clicking)
-      orderBtn.onclick = (e)=>{
-        e.preventDefault();
-        const message = `Halo, saya mau pesan ${p.name} (kode ${p.id}) - Ukuran: ${sizeSelect.value} - Jumlah: ${qty.value} - Harga: ${rupiah(p.price)}`;
-        const url = 'https://wa.me/6281234567890?text='+encodeURIComponent(message);
-        window.open(url,'_blank');
-      }
-      modal.style.display = 'grid';
-    }
-
-    document.getElementById('closeBtn').addEventListener('click', ()=>{ modal.style.display = 'none'; });
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.style.display = 'none'; });
-
-    // Accessibility: allow Esc to close
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') modal.style.display = 'none'; });
-
-  </script>
+                    // Tutup sidebar jika terbuka
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
