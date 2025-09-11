@@ -36,8 +36,32 @@
         .hamburger { width:30px; cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; height:22px; margin-right:15px; }
         .hamburger div { width:100%; height:4px; background:#fff; border-radius:2px; }
 
-        .logo { display:flex; justify-content:center; align-items:center; width:80px; height:80px; border-radius:50%; background:#FDF5E6; border:2px solid #D4AF37; color:#B8860B; font-weight:600; font-size:16px; font-family:'Playfair Display', Georgia, serif; text-align:center; box-shadow:0 2px 4px rgba(0,0,0,0.1); transition:transform 0.2s, box-shadow 0.2s; }
-        .logo:hover { transform:scale(1.05); box-shadow:0 44px 8px rgba(0,0,0,0.15); cursor:pointer; }
+        /* CSS untuk Logo Bulat Putih Minimalis */
+        .logo { 
+            display:flex; 
+            justify-content:center; 
+            align-items:center; 
+            width:80px; /* Sesuaikan ukuran jika perlu */
+            height:80px; /* Sesuaikan ukuran jika perlu */
+            border-radius:50%; 
+            background: none; /* Latar belakang transparan */
+            border:2px solid rgba(255, 255, 255, 0.8); /* Border putih semi-transparan */
+            color:#fff; /* Teks putih */
+            font-weight:600; 
+            font-size:16px; 
+            font-family:'Playfair Display', Georgia, serif; 
+            text-align:center; 
+            box-shadow:none; /* Tanpa bayangan */
+            transition:all 0.3s ease; 
+            text-decoration: none; 
+        }
+        .logo:hover { 
+            transform:scale(1.05); 
+            box-shadow:0 0 10px rgba(255, 255, 255, 0.4); /* Efek cahaya saat hover */
+            background-color: rgba(255, 255, 255, 0.1); /* Sedikit latar belakang saat hover */
+            border-color: #fff; /* Border putih solid saat hover */
+            cursor:pointer; 
+        }
 
         nav { flex:1; text-align:center; }
         nav ul { list-style:none; display:inline-flex; gap:30px; }
@@ -59,465 +83,77 @@
         .sidebar-close:hover { background:#D4AF37; }
 
         /* MAIN content */
-        main {
-            padding-top: 0;
-        }
-
-        /* General Section Styling */
-        section {
-            position:relative;
-            min-height:100vh;
-            background-color: #333; /* Warna latar belakang gelap untuk semua section */
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            overflow:hidden;
-            border-bottom:1px solid #ddd;
-        }
-        
-        /* Section 1 - Dengan konten terpusat */
-        #home .section-content {
-            text-align:center;
-            color:#fff;
-            backdrop-filter:blur(3px);
-            background-color:rgba(0,0,0,0.2);
-            padding:50px;
-            border-radius:15px;
-            position: relative;
-            z-index: 2;
-        }
-        #home {
-            background-image: url('https://raw.githubusercontent.com/arzaqyusra99/PROJECT-KEBAYA-99/main/BG1.jpg'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-        }
-
-        /* Section 2 - Layout dua kolom baru */
-        #welcome {
-            background-image: none; /* Menghapus gambar latar belakang */
-            background-color: #333;
-            padding: 80px 0; /* Memberikan jarak vertikal */
-            height: auto;
-        }
-        .welcome-container {
-            display: flex; /* Menggunakan Flexbox untuk tata letak kolom */
-            justify-content: center;
-            align-items: center;
-            gap: 20px; /* Jarak antar kolom */
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .welcome-image {
-            flex: 1; /* Mengambil 50% ruang */
-            max-width: 50%;
-        }
-        .welcome-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .welcome-content {
-            flex: 1; /* Mengambil 50% ruang */
-            max-width: 50%;
-            background-color: #000; /* Latar belakang hitam solid */
-            color: #fff;
-            padding: 40px;
-        }
-        .welcome-content .section-title {
-            text-shadow: none;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-        .welcome-content p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .welcome-content a {
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid #fff;
-            padding-bottom: 2px;
-            transition: border-color 0.3s ease;
-        }
-        .welcome-content a:hover {
-            border-color: transparent;
-        }
-
-        /* Section 3 - Best Sellers Grid */
-        #best-seller {
-            background-color: #D6CFC7;
-            padding: 80px 20px;
-            flex-direction: column;
-            text-align: center;
-            height: auto;
-        }
-        #best-seller .section-title {
-            color: #555;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 20px;
-        }
-        .product-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: left;
-            position: relative;
-        }
-        .product-card-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        .product-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #B8860B;
-            color: #fff;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-        .product-details {
-            padding: 15px;
-        }
-        .product-details h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        .product-details .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .price-row .price {
-            font-size: 16px;
-            font-weight: bold;
-            color: #000;
-        }
-        .add-to-cart {
-            font-size: 20px;
-            color: #333;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .add-to-cart:hover {
-            color: #B8860B;
-        }
-        
-        /* Section 4 - Promotion */
-        #promotion {
-            background-color: #D6CFC7; /* Latar belakang yang sama dengan best seller */
-            padding: 80px 20px;
-            height: auto;
-        }
-        .promotion-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            flex-direction: row-reverse; /* Mengatur urutan terbalik */
-        }
-        .promotion-content {
-            flex: 1;
-            max-width: 50%;
-            background-color: #fff;
-            padding: 40px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .promotion-content .section-title {
-            text-shadow: none;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .promotion-content p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .promotion-content .promo-btn {
-            padding: 10px 20px;
-            background-color: #B8860B;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        .promotion-content .promo-btn:hover {
-            background-color: #a07a11;
-        }
-        .promotion-image {
-            flex: 1;
-            max-width: 50%;
-        }
-        .promotion-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Section 5 - About Us */
-        #about-us {
-            background-color: #333; /* Latar belakang gelap untuk section ini */
-            padding: 80px 20px;
-            height: auto;
-        }
-        .about-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            flex-direction: row-reverse; /* Gambar di kanan, konten di kiri */
-        }
-        .about-content {
-            flex: 1;
-            max-width: 50%;
-            background-color: #1A1227; /* Latar belakang lebih gelap untuk konten */
-            color: #fff;
-            padding: 50px;
-            text-align: center;
-        }
-        .about-content .section-title {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #fff;
-            text-shadow: none;
-        }
-        .about-content h3 { /* Untuk "My name is Jean Young" */
-            font-size: 20px;
-            font-weight: normal;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        .about-content p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #bbb;
-            margin-bottom: 30px;
-        }
-        .social-icons {
-            margin-bottom: 30px;
-        }
-        .social-icons a {
-            color: #fff;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: #D4AF37;
-        }
-        .about-btn {
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #fff;
-            background-color: transparent;
-            border: 2px solid #fff;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .about-btn:hover {
-            background-color: #fff;
-            color: #1A1227;
-        }
-        .about-image {
-            flex: 1;
-            max-width: 50%;
-        }
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Section 6 - Contact Us / Follow Us */
-        #contact-us {
-            background-color: #000;
-            padding-top: 80px;
-            padding-bottom: 50px;
-            min-height: auto; /* Mengatur tinggi agar tidak selalu 100vh */
-            flex-direction: column; /* Konten disusun vertikal */
-            justify-content: flex-start; /* Mulai dari atas */
-            align-items: center;
-        }
-        .follow-us-gallery {
-            width: 100%;
-            max-width: 1200px;
-            margin-bottom: 50px;
-            padding: 0 20px;
-        }
-        .follow-us-gallery .section-title {
-            color: #fff;
-            font-size: 48px; /* Lebih besar dari sebelumnya */
-            text-align: left;
-            margin-bottom: 30px;
-            padding-left: 20px;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .gallery-item {
-            overflow: hidden;
-            width: 100%;
-            height: 200px; /* Tinggi tetap untuk gambar galeri */
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Footer / Contact Info */
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap; /* Agar responsif */
-            width: 100%;
-            max-width: 1200px;
-            padding: 50px 20px 20px;
-            color: #fff;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin-top: 50px;
-        }
-        .footer-left {
-            flex: 1;
-            min-width: 250px; /* Lebar minimum */
-            margin-bottom: 20px;
-        }
-        .footer-left .logo {
-            width: auto;
-            height: auto;
-            border: none;
-            background: none;
-            box-shadow: none;
-            font-size: 24px;
-            color: #fff;
-            text-align: left;
-            margin-bottom: 10px;
-            font-family:'Playfair Display', Georgia, serif;
-        }
-        .footer-left .connect-text {
-            font-size: 36px;
-            line-height: 1.2;
-            margin-top: 20px;
-            font-family:'Playfair Display', Georgia, serif;
-        }
-        .footer-right {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            min-width: 250px;
-            margin-bottom: 20px;
-        }
-        .contact-info-block {
-            line-height: 1.8;
-        }
-        .contact-info-block h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #fff;
-            font-family:'Playfair Display', Georgia, serif;
-        }
-        .contact-info-block p, .contact-info-block a {
-            color: #bbb;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .contact-info-block a:hover {
-            color: #D4AF37;
-        }
-        .footer-social-icons {
-            margin-top: 20px;
-        }
-        .footer-social-icons a {
-            color: #bbb;
-            font-size: 18px;
-            margin-right: 15px;
-            transition: color 0.3s ease;
-        }
-        .footer-social-icons a:hover {
-            color: #D4AF37;
-        }
-        .copyright {
-            width: 100%;
-            text-align: center;
-            color: #666;
-            font-size: 12px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* General styling for section content box */
-        .section-content {
-            padding:50px;
-            border-radius:15px;
-            position: relative; 
-            z-index: 2;
-        }
-        
-        /* Teks tambahan untuk hero-section */
-        .hero-title {
-            font-size:48px;
-            font-family:'Playfair Display', serif;
-            margin-bottom:20px;
-            text-shadow:1px 1px 6px rgba(0,0,0,0.6);
-        }
-        .hero-btn {
-            padding:12px 30px;
-            font-size:16px;
-            font-weight:500;
-            color:#fff;
-            background-color:rgba(255,255,255,0.1);
-            border:2px solid #fff;
-            border-radius:25px;
-            cursor:pointer;
-            transition:all 0.3s;
-        }
-        .hero-btn:hover {
-            background-color:rgba(255,255,255,0.3);
-            transform:scale(1.05);
-        }
-
-        /* Responsive */
+        main { padding-top: 0; }
+        section { position:relative; min-height:100vh; background-color: #333; display:flex; justify-content:center; align-items:center; overflow:hidden; }
+        #home .section-content { text-align:center; color:#fff; backdrop-filter:blur(3px); background-color:rgba(0,0,0,0.2); padding:50px; border-radius:15px; position: relative; z-index: 2; }
+        #home { background-image: url('https://raw.githubusercontent.com/arzaqyusra99/PROJECT-KEBAYA-99/main/BG1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 100vh; }
+        #welcome { background-image: none; background-color: #333; padding: 80px 0; height: auto; }
+        .welcome-container { display: flex; justify-content: center; align-items: center; gap: 20px; width: 90%; max-width: 1000px; margin: 0 auto; }
+        .welcome-image { flex: 1; max-width: 50%; }
+        .welcome-image img { width: 100%; height: auto; display: block; }
+        .welcome-content { flex: 1; max-width: 50%; background-color: #000; color: #fff; padding: 40px; }
+        .welcome-content .section-title { text-shadow: none; margin-bottom: 20px; color: #fff; }
+        .welcome-content p { font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+        .welcome-content a { color: #fff; text-decoration: none; border-bottom: 1px solid #fff; padding-bottom: 2px; transition: border-color 0.3s ease; }
+        .welcome-content a:hover { border-color: transparent; }
+        #best-seller { background-color: #D6CFC7; padding: 80px 20px; flex-direction: column; text-align: center; height: auto; }
+        #best-seller .section-title { color: #555; margin-bottom: 50px; text-transform: uppercase; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; width: 100%; max-width: 1200px; margin-top: 20px; }
+        .product-card { background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden; text-align: left; position: relative; }
+        .product-card-image { width: 100%; height: 250px; overflow: hidden; position: relative; }
+        .product-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .product-badge { position: absolute; top: 10px; left: 10px; background-color: #B8860B; color: #fff; padding: 5px 10px; font-size: 12px; border-radius: 4px; }
+        .product-details { padding: 15px; }
+        .product-details h3 { font-size: 18px; margin-bottom: 5px; color: #333; }
+        .product-details .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .price-row .price { font-size: 16px; font-weight: bold; color: #000; }
+        .add-to-cart { font-size: 20px; color: #333; cursor:pointer; transition: color 0.3s; }
+        .add-to-cart:hover { color: #B8860B; }
+        #promotion { background-color: #D6CFC7; padding: 80px 20px; height: auto; }
+        .promotion-container { display: flex; justify-content: center; align-items: center; gap: 20px; width: 90%; max-width: 1000px; margin: 0 auto; flex-direction: row-reverse; }
+        .promotion-content { flex: 1; max-width: 50%; background-color: #fff; padding: 40px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+        .promotion-content .section-title { text-shadow: none; color: #333; margin-bottom: 10px; }
+        .promotion-content p { color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+        .promotion-content .promo-btn { padding: 10px 20px; background-color: #B8860B; color: #fff; text-decoration: none; border-radius: 5px; display: inline-block; transition: background-color 0.3s ease; }
+        .promotion-content .promo-btn:hover { background-color: #a07a11; }
+        .promotion-image { flex: 1; max-width: 50%; }
+        .promotion-image img { width: 100%; height: auto; display: block; }
+        #about-us { background-color: #333; padding: 80px 20px; height: auto; }
+        .about-container { display: flex; justify-content: center; align-items: center; gap: 20px; width: 90%; max-width: 1000px; margin: 0 auto; flex-direction: row-reverse; }
+        .about-image { flex: 1; max-width: 50%; }
+        .about-image img { width: 100%; height: auto; display: block; }
+        .about-content { flex: 1; max-width: 50%; background-color: #1A1227; color: #fff; padding: 50px; text-align: center; }
+        .about-content .section-title { font-size: 40px; margin-bottom: 10px; color: #fff; text-shadow: none; }
+        .about-content h3 { font-size: 20px; font-weight: normal; margin-bottom: 20px; color: #ccc; }
+        .about-content p { font-size: 15px; line-height: 1.6; color: #bbb; margin-bottom: 30px; }
+        .social-icons { margin-bottom: 30px; }
+        .social-icons a { color: #fff; font-size: 24px; margin: 0 10px; transition: color 0.3s ease; }
+        .social-icons a:hover { color: #D4AF37; }
+        .about-btn { padding: 12px 30px; font-size: 16px; font-weight: 500; color: #fff; background-color: transparent; border: 2px solid #fff; border-radius: 25px; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .about-btn:hover { background-color: #fff; color: #1A1227; }
+        #contact-us { background-color: #000; padding-top: 80px; padding-bottom: 50px; min-height: auto; flex-direction: column; justify-content: flex-start; align-items: center; }
+        .follow-us-gallery { width: 100%; max-width: 1200px; margin-bottom: 50px; padding: 0 20px; }
+        .follow-us-gallery .section-title { color: #fff; font-size: 48px; text-align: left; margin-bottom: 30px; padding-left: 20px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .gallery-item { overflow: hidden; width: 100%; height: 200px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; width: 100%; max-width: 1200px; padding: 50px 20px 20px; color: #fff; border-top: 1px solid rgba(255, 255, 255, 0.2); margin-top: 50px; }
+        .footer-left { flex: 1; min-width: 250px; margin-bottom: 20px; }
+        .footer-left .logo { width: auto; height: auto; border: none; background: none; box-shadow: none; font-size: 24px; color: #fff; text-align: left; margin-bottom: 10px; font-family:'Playfair Display', Georgia, serif; }
+        .footer-left .connect-text { font-size: 36px; line-height: 1.2; margin-top: 20px; font-family:'Playfair Display', Georgia, serif; }
+        .footer-right { display: flex; gap: 50px; flex-wrap: wrap; min-width: 250px; margin-bottom: 20px; }
+        .contact-info-block { line-height: 1.8; }
+        .contact-info-block h4 { font-size: 18px; margin-bottom: 10px; color: #fff; font-family:'Playfair Display', Georgia, serif; }
+        .contact-info-block p, .contact-info-block a { color: #bbb; text-decoration: none; font-size: 14px; }
+        .contact-info-block a:hover { color: #D4AF37; }
+        .footer-social-icons { margin-top: 20px; }
+        .footer-social-icons a { color: #bbb; font-size: 18px; margin-right: 15px; transition: color 0.3s ease; }
+        .footer-social-icons a:hover { color: #D4AF37; }
+        .copyright { width: 100%; text-align: center; color: #666; font-size: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .section-content { padding:50px; border-radius:15px; position: relative; z-index: 2; }
+        .hero-title { font-size:48px; font-family:'Playfair Display', serif; margin-bottom:20px; text-shadow:1px 1px 6px rgba(0,0,0,0.6); }
+        .hero-btn { padding:12px 30px; font-size:16px; font-weight:500; color:#fff; background-color:rgba(255,255,255,0.1); border:2px solid #fff; border-radius:25px; cursor:pointer; transition:all 0.3s; }
+        .hero-btn:hover { background-color:rgba(255,255,255,0.3); transform:scale(1.05); }
         @media(max-width:768px){
             header{flex-direction:column;padding:10px 20px; text-align: center; width: 95%;}
             nav {margin-top: 15px;}
@@ -526,42 +162,14 @@
             .hero-title {font-size: 32px;}
             .section-title {font-size: 28px;}
             .sidebar.active ~ main { transform: translateX(250px); }
-
-            .welcome-container,
-            .promotion-container,
-            .about-container {
-                flex-direction: column; /* Mengubah Flexbox menjadi vertikal di layar kecil */
-            }
-            .welcome-image, .welcome-content,
-            .promotion-image, .promotion-content,
-            .about-image, .about-content {
-                max-width: 100%;
-            }
-            .follow-us-gallery .section-title {
-                font-size: 36px;
-                text-align: center;
-                padding-left: 0;
-            }
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .footer-left, .footer-right {
-                min-width: unset;
-                width: 100%;
-                text-align: center;
-            }
-            .footer-left .logo {
-                text-align: center;
-            }
-            .footer-right {
-                gap: 20px;
-                justify-content: center;
-            }
-            .contact-info-block h4 {
-                margin-top: 20px;
-            }
+            .welcome-container, .promotion-container, .about-container { flex-direction: column; }
+            .welcome-image, .welcome-content, .promotion-image, .promotion-content, .about-image, .about-content { max-width: 100%; }
+            .follow-us-gallery .section-title { font-size: 36px; text-align: center; padding-left: 0; }
+            .footer-content { flex-direction: column; align-items: center; text-align: center; }
+            .footer-left, .footer-right { min-width: unset; width: 100%; text-align: center; }
+            .footer-left .logo { text-align: center; }
+            .footer-right { gap: 20px; justify-content: center; }
+            .contact-info-block h4 { margin-top: 20px; }
         }
     </style>
 </head>
@@ -573,7 +181,7 @@
             <div></div>
             <div></div>
         </div>
-        <a href="#" class="logo">MENA ID</a>
+        <a href="#home" class="logo">MENA ID</a>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -581,7 +189,7 @@
                 <li><a href="#best-seller">Best Seller</a></li>
                 <li><a href="#promotion">Promotion</a></li>
                 <li><a href="#about-us">About Us</a></li>
-                <li><a href="#contact-us">Contact Us</a></li> 
+                <li><a href="#contact-us">Contact Us</a></li>
             </ul>
         </nav>
         <div class="cart">
@@ -732,6 +340,9 @@
                     <div class="gallery-item">
                         <img src="https://raw.githubusercontent.com/arzaqyusra99/PROJECT-KEBAYA-99/main/BG7.jpg" alt="Fashion Image">
                     </div>
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/arzaqyusra99/PROJECT-KEBAYA-99/main/BG8.jpg" alt="Fashion Image">
+                    </div>
                 </div>
             </div>
             <div class="footer-content">
@@ -793,7 +404,7 @@
                 if(targetSection){
                     const headerOffset = document.querySelector('header').offsetHeight;
                     const elementPosition = targetSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffsets - headerOffset;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
                     window.scrollTo({ top: offsetPosition, behavior:"smooth" });
 
